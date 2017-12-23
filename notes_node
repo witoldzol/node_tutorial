@@ -1,0 +1,22 @@
+//function expression:
+// anonymous function assigned to a variable. thats it!
+
+var x = function() {}
+
+//in order to import modules (other node files), use :
+
+require('./filename') // no need for .js at the end of file name
+
+// even though we require a module, elements will not be available unless we EXPORT them (in the requested module)
+
+//in requesterd module:
+modules.exports = nameOfVariable (function);
+
+//you can export quickly using object literal
+
+module.exports = {
+
+    firstMod : firstMod,
+    secondMod : secondMod
+}
+
