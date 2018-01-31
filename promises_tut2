@@ -1,0 +1,88 @@
+
+function cl(x) { console.log(x)};
+
+
+let isMomHappy = true;
+//let isMomHappy = false;
+
+let willIGetNewPhone = new Promise(
+
+    (resolve,reject) => {
+
+	if(isMomHappy){
+
+	    let phone = {
+		brand: 2,
+		color: 'black'
+	    };
+	    resolve(phone);
+	    
+	}else{
+
+	    let reason = new Error('mom is tired and angry');
+	    reject(reason);
+	}
+    }
+
+);
+
+
+
+let brag = function (phone) {
+
+    return new Promise(
+
+	(resolve, reject) => {
+	    if(phone.brand === 1){
+		//		let msg = `Congrats buddie on your ${phone.brand}`;
+		let msg = 3;
+		resolve(msg);
+
+	    }else {
+		let er = new Error('snap buddie');
+		reject(er);
+		
+	    }
+	    
+	    	    
+	}
+    );
+}
+
+let shout = function ( msg ) {
+
+    return new Promise(
+
+	(resolve,reject)=>{
+	    if(msg == 3){
+		let yell = 'Woooo';
+		resolve(yell);
+	    }else{
+		
+		let er = new Error('last error');
+		reject(er);
+		
+	    }
+
+	    
+	}
+	
+	
+    );
+}
+
+
+// where magic happens - chain promises under one function
+
+let askMum = () => {
+
+    willIGetNewPhone
+	.then( brag )
+	.then( shout )
+	.then( x=>cl(x) )
+	.catch( err=>cl(err.message));
+
+}
+
+//lunch
+askMum();
