@@ -1,5 +1,12 @@
-let count = require('./app')
+function min (a,b){
 
-let x = [1,2]
+    if(a<b) return a
+    else return b
+}
 
-count(x)
+function print (x,y){
+
+    console.log(min(x,y))
+}
+
+print(4,8)

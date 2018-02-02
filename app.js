@@ -1,8 +1,19 @@
+function findSolution(target) {
 
-let count = (arr) => {console.log(arr.length)}
+    function find(start , history) {
 
-let t = [1,2,3]
+	if (start == target)
+	    return history;
+	
+	else if (start > target)
+	    return null;
+	
+	else
 
-count(t)
+	    return find(start + 5, "(" + history + " + 5)") ||
+	    find(start * 3, "(" + history + " * 3)");
+    }
+	return find(1, "1");
+}
 
-module.exports = count
+console.log(findSolution(13))
