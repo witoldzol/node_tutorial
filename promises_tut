@@ -1,0 +1,68 @@
+
+
+function cl (x) { console.log(x)}
+
+let askForRaise = false;
+let didntGetIt = true;
+let raise;
+
+let promise1 = () =>{
+	
+	return new Promise(
+
+		(resolve, reject) => {
+	
+			if ( askForRaise ){
+
+				 raise = true;
+				resolve( raise );
+				didntGetIt = false;
+			}
+			 else {
+			 	 raise = false;
+				let denied = new Error( 'no raise for you buddie ' );
+				didntGetIt = true;
+				reject( denied );
+
+			}
+		}
+	);	
+} 
+
+
+let brag = (raise)=> {
+
+	return new Promise(
+
+		(resolve, reject)=>{
+
+			
+			if( raise ){
+
+				let congrats = `Hey,${raise} . Wow,thats amazing, congrats`;
+				resolve( congrats );
+				
+			} else {
+
+
+				let downer = new Error (`${denied}  Ahh, dude thats a shame!`);
+				reject( downer );
+				
+			}
+				
+		}
+		 
+	);
+
+}
+
+
+let test = () => {
+
+	promise1().then( brag ).then( (succ) => { cl(succ) } ).catch( (err) => { cl(err) });
+
+}
+
+test();
+
+//askAndBrag();
